@@ -2,7 +2,7 @@ Vagrant::Config.run do |config|
   config.vm.host_name = "my-devstack"
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-  config.vm.customize ["modifyvm", :id, "--memory", 1024]
+  config.vm.customize ["modifyvm", :id, "--memory", 2048]
   config.vm.network :hostonly, "10.10.10.43"
   config.vm.boot_mode='gui'
 
