@@ -13,8 +13,7 @@ class base {
   package { "curl": ensure => "present", } ->
   package { "git-core": ensure => "installed", } -> 
   package { "vim": ensure => "installed", } ->
-  package { "wget": ensure => "installed", } ->
-  package { "ubuntu-desktop": ensure => "installed", notify => Exec["/sbin/reboot"] }
+  package { "wget": ensure => "installed", } 
 
   exec { "/sbin/reboot": refreshonly => "true" }
 
