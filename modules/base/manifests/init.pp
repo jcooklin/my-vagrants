@@ -1,10 +1,4 @@
 class base {
-  file {"/etc/bash.bashrc":
-  	owner => root,
-	group => root,
-	mode => '0644',
-	content => template('base/bash.bashrc.erb'),
-  } ->
   file {"/etc/gitconfig":
   	owner => root,
 	group => root,
