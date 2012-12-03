@@ -16,7 +16,11 @@ class base {
 	group => root,
 	mode => '0644',
 	content => template('base/apt.conf.erb'),
-  } ->
+  } ~>
+  exec {"add proxy to global exports":
+    command => 'echo "export http_proxy=http://proxy-us.intel.com:911" >> /etc/bash.bashrc; echo "export https_proxy=http://proxy-us.intel.com:911" >> /etc/bash.bashrc',
+    refreshonly => true,
+  }
 
   group { "puppet": ensure => "present"; }  ->
 
