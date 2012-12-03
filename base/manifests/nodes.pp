@@ -11,8 +11,6 @@ node basenode {
 
 node default inherits basenode {
 
-  include desktop
-
   group { "vagrant": ensure => "present"; } ->
   user  { "vagrant": ensure => "present"; } 
 

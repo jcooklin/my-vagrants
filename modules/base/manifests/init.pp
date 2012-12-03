@@ -1,4 +1,10 @@
 class base {
+  file {"/etc/gitconfig":
+  	owner => root,
+	group => root,
+	mode => '0644',
+	content => template('base/gitconfig.erb'),
+  } ->
   file {"/etc/apt/apt.conf":
   	owner => root,
 	group => root,
