@@ -1,9 +1,9 @@
 Vagrant::Config.run do |config|
-  config.vm.host_name = "my-precise"
+  config.vm.host_name = "my-precise-base"
   config.vm.box = "precise64"
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.customize ["modifyvm", :id, "--memory", 1048]
-  #config.vm.network :hostonly, "10.10.10.20" multiple networks confuse devstack
+  config.vm.network :hostonly, "10.10.10.101" 
   config.vm.boot_mode='gui'
 
   config.vm.provision :puppet do |puppet|

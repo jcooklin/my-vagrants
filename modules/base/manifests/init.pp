@@ -25,6 +25,4 @@ class base {
   package { "vim": ensure => "installed", } ->
   package { "wget": ensure => "installed", } 
 
-  exec { "/sbin/reboot": refreshonly => "true" }
-
 }
