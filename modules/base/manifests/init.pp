@@ -12,7 +12,7 @@ class base {
 	content => template('base/apt.conf.erb'),
   } ~>
   exec {"add proxy to global exports":
-    command => 'echo "export http_proxy=http://proxy-us.intel.com:911" >> /etc/bash.bashrc; echo "export https_proxy=http://proxy-us.intel.com:911" >> /etc/bash.bashrc',
+    command => 'echo "export http_proxy=http://proxy-us.intel.com:911" >> /etc/environment; echo "export https_proxy=http://proxy-us.intel.com:911" >> /etc/environment',
     refreshonly => true,
   }
 
