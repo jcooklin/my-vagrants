@@ -14,6 +14,10 @@ class base {
   exec {"add proxy to global exports":
     command => 'echo "export http_proxy=http://proxy-us.intel.com:911" >> /etc/environment; echo "export https_proxy=http://proxy-us.intel.com:911" >> /etc/environment',
     refreshonly => true,
+  } ~>
+  exec {"update apt":
+    command => "apt-get update",
+    refreshonly => true,
   }
 
   group { "puppet": ensure => "present"; }  ->
