@@ -1,0 +1,1 @@
+The last time I ran this vagrant it didn't work from the jump due to issues with ubuntu-desktop package dependencies and the default repos.  If the provision process fails log in and run 'apt-get update; apt-get -y dist-upgrade; apt-get -y install ubuntu-desktop' as root.
