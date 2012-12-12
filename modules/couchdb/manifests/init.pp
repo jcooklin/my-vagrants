@@ -6,7 +6,7 @@ class couchdb(
   $foldername = 'apache-couchdb-1.2.0',
   $buildopts = '',
   $rm_build_folder = false,
-  $bind = '127.0.0.1',
+  $bind = '${ipaddress_eth1}',
   $basic_realm = undef,
   $require_valid_user = false,
   $admin_passwd = undef,

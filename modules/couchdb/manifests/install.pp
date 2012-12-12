@@ -22,6 +22,7 @@ class couchdb::install {
 
   exec { 'download':
     cwd     => $couchdb::cwd,
+    environment => ["http_proxy=http://proxy-us.intel.com:911","https_proxy=http://proxy-us.intel.com:911"],
     command => "/usr/bin/wget -q ${couchdb::download} -O ${couchdb::filename}",
     timeout => '120',
   }
