@@ -1,1 +1,3 @@
 .vagrant
+*.pem
+*.dump

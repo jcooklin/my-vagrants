@@ -12,11 +12,11 @@ class base {
 	content => template('base/apt.conf.erb'),
   } ~>
   exec {"add proxy to global exports":
-    command => 'echo "export http_proxy=http://proxy-us.intel.com:911" >> /etc/environment; echo "export https_proxy=http://proxy-us.intel.com:911" >> /etc/environment',
+    command => 'echo "export http_proxy=http://proxy-us.intel.com:911" >> /etc/environment; echo "export https_proxy=http://proxy-us.intel.com:911" >> /etc/environment; echo "no_proxy=127.0.0.1,localhost,${ipaddress_eth1}" >> /etc/environment',
     refreshonly => true,
   } ~>
   exec {"update apt":
-    command => "apt-get update",
+    command => "apt-get -y update;apt-get -y dist-upgrade",
     refreshonly => true,
   }
 
@@ -27,6 +27,7 @@ class base {
   package { "curl": ensure => "present", } ->
   package { "git-core": ensure => "installed", } -> 
   package { "vim": ensure => "installed", } ->
-  package { "wget": ensure => "installed", } 
+  package { "wget": ensure => "installed", } ->
+  package { "libssl0.9.8": ensure => "installed", }
 
 }
