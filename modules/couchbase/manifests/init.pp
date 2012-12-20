@@ -1,4 +1,4 @@
-class couchdb() {
+class couchbase() {
 
   include couchbase::package
 }
