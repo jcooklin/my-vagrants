@@ -1,0 +1,29 @@
+---
+:hierarchy:
+    - %{::data_center}
+    - common
+
+:backends:
+    - http
+#    - json
+
+:http:
+    :host: '10.10.10.50'
+    :port: 8080
+    :output: 'json'
+    :failure: graceful
+    :paths:
+#        - /servers/ut_virtualmachine/%{calling_module}/variables/%{key}
+#        - /servers/ut_virtualmachine/%{calling_module}
+#        - /servers/ut_virtualmachine/%{calling_class}
+#        - /servers/ut_virtualmachine/variables/%{key}
+        - /servers/ut_virtualmachine/variables
+#        - /servers/ut_virtualmachine/%{calling_class}/variables
+#        - /servers/ut_virtualmachine/%{calling_module}/variables
+#        - /servers/ut_virtualmachine/variables/
+#        - /servers/ut_virtualmachine/variables/%{key}
+
+:json:
+    # @todo replace with absolute path for non-Vagrant use
+    # alternatively set a top-level variable in default.pp and do %{::var_name}
+    :datadir: 'hieradata'

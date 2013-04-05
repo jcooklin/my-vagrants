@@ -1,0 +1,4 @@
+{
+    "role::ui::public_hostname": "%{::ipaddress_eth1}"
+    ,"fun":"almost"
+}

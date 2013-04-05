@@ -5,6 +5,7 @@ Vagrant::Config.run do |config|
   config.vm.customize ["modifyvm", :id, "--memory", 2048]
   config.vm.network :hostonly, "10.10.10.60" 
   config.vm.boot_mode='gui'
+  #config.vm.provision :shell, :path => "scripts/bootstrap.sh"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"

@@ -1,0 +1,18 @@
+---
+:hierarchy:
+    - %{::data_center}
+    - common
+
+:backends:
+    - json
+    - rest
+
+:rest:
+    :server: '10.10.10.99'
+    :port: 8080
+    :api: '/servers/ut_virtualmachine/variables/'
+
+:json:
+    # @todo replace with absolute path for non-Vagrant use
+    # alternatively set a top-level variable in default.pp and do %{::var_name}
+    :datadir: 'hieradata'

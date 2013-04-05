@@ -30,6 +30,8 @@ class base {
   package { "git-core": ensure => "installed", } -> 
   package { "vim": ensure => "installed", } ->
   package { "wget": ensure => "installed", } ->
-  package { "libssl0.9.8": ensure => "installed", }
+  package { "libssl0.9.8": ensure => "installed", } ->
+  package { "build-essential": ensure => "installed", } ->
+  package { "libsqlite3-dev": ensure => "installed", }
 
 }

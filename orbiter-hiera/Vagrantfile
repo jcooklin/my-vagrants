@@ -1,0 +1,17 @@
+Vagrant::Config.run do |config|
+  config.vm.host_name = "my-precise-orbiter-hiera"
+  config.vm.box = "precise64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.customize ["modifyvm", :id, "--memory", 2048]
+  config.vm.network :hostonly, "10.10.10.61" 
+  config.vm.boot_mode='gui'
+
+  config.vm.provision :shell, :path => "scripts/bootstrap.sh"
+
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.module_path = "../modules/oc"
+    puppet.manifest_file = "run_me.pp"
+    puppet.options = ["--verbose", "--hiera_config", "hiera.yaml", "--node_name_value", config.vm.host_name, "--http_proxy_host", "proxy-us.intel.com", "--http_proxy_port", "911"]
+  end
+end
