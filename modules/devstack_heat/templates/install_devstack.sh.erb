@@ -1,0 +1,14 @@
+#!/bin/bash
+. /etc/environment
+git clone https://github.com/openstack-dev/devstack.git -b stable/grizzly devstack
+cd devstack
+echo ADMIN_PASSWORD=password > localrc
+echo MYSQL_PASSWORD=password >> localrc
+echo RABBIT_PASSWORD=password >> localrc
+echo SERVICE_PASSWORD=password >> localrc
+echo SERVICE_TOKEN=tokentoken >> localrc
+echo FLAT_INTERFACE=br100 >> localrc
+echo ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng >> localrc
+echo IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F16-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F16-i386-cfntools.qcow2" >> localrc
+./stack.sh
+echo "OFFLINE=True" >> localrc
