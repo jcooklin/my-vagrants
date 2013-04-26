@@ -16,10 +16,11 @@ class base {
     refreshonly => true,
   } ~>
   exec {"update apt":
-    command => "apt-get -y update;apt-get -y dist-upgrade",
+    command => "/usr/bin/apt-get -y update;/usr/bin/apt-get -y dist-upgrade",
     #command => "apt-get -y update",
     refreshonly => true,
-    timeout => 600,
+    timeout => 0,
+    logoutput => true
   }
 
   group { "puppet": ensure => "present"; }  ->
