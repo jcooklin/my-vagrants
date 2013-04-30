@@ -8,7 +8,7 @@ echo RABBIT_PASSWORD=password >> localrc
 echo SERVICE_PASSWORD=password >> localrc
 echo SERVICE_TOKEN=tokentoken >> localrc
 echo FLAT_INTERFACE=br100 >> localrc
-echo ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng >> localrc
-echo IMAGE_URLS+=",http://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F16-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F16-i386-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-i386-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-i386-gold.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools-pkg.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools-pkg.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-gold.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/U10-x86_64-cfntools-pkg.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/U10-x86_64-cfntools.qcow2" >> localrc
+echo ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng,ceilometer-acompute,ceilometer-acentral,ceilometer-collector,ceilometer-api >> localrc
+echo IMAGE_URLS+=",http://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools-pkg.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools-pkg.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/U10-x86_64-cfntools.qcow2" >> localrc
 ./stack.sh
 echo "OFFLINE=True" >> localrc
