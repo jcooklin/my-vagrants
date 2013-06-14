@@ -10,7 +10,7 @@ echo SERVICE_TOKEN=tokentoken >> localrc
 # Enable Heat
 #echo ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng,ceilometer-acompute,ceilometer-acentral,ceilometer-collector,ceilometer-api >> localrc 
 echo ENABLED_SERVICES+=,c-api,c-sch,c-vol,ceilometer-acentral,ceilometer-acompute,ceilometer-api,ceilometer-collector,cinder,g-api,g-reg,h-api,h-api-cfn,h-api-cw,h-eng,heat,horizon,key,mysql,n-api,n-cauth,n-cond,n-cpu,n-crt,n-novnc,n-obj,n-sch,n-xvnc,q-agt,q-dhcp,q-l3,q-lbaas,q-meta,q-svc,quantum,rabbit,sysstat >> localrc
-#echo IMAGE_URLS+=",http://192.168.1.107:8000/cirros-0.3.0-x86_64-uec.tar.gz,http://192.168.1.107:8000/F17-i386-cfntools.qcow2,http://192.168.1.107:8000/F17-x86_64-cfntools.qcow2,http://192.168.1.107:8000/F18-i386-cfntools.qcow2,http://192.168.1.107:8000/F18-x86_64-cfntools.qcow2" >> localrc
+# echo IMAGE_URLS+=",http://gmw-gorozco1.zpn.intel.com/oc-images/cirros-0.3.0-x86_64-uec.tar.gz,http://gmw-gorozco1.zpn.intel.com/oc-images/F17-i386-cfntools.qcow2,http://gmw-gorozco1.zpn.intel.com/oc-images/F17-x86_64-cfntools.qcow2,http://gmw-gorozco1.zpn.intel.com/oc-images/F18-i386-cfntools.qcow2,http://gmw-gorozco1.zpn.intel.com/oc-images/F18-x86_64-cfntools.qcow2" >> localrc
 echo IMAGE_URLS+=",http://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-i386-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F18-i386-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F18-x86_64-cfntools.qcow2" >> localrc
 echo disable_service n-net >> localrc
 
