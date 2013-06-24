@@ -21,7 +21,7 @@ export REPO_URL=
 # change-admin-pwd recipe variable (embedded here)
 # export ADMIN_PWD=rootroot
 # os-repo recipe variables
-export OS_REPO=http://repo-eg01.cps.intel.com/archive.ubuntu.com/
+export OS_REPO=repo-eg01.cps.intel.com
 # puppet-repo recipe variables
 # export PUPPET_REPO=http://repo-eg01.cps.intel.com/apt.puppetlabs.com/
 # export PUPPET_KEY=http://$BOOTSTRAP_HOST/oc-bootstrap/recipes/puppet-repo/common/puppetlabs-pubkey.gpg
