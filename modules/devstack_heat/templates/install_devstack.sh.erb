@@ -7,8 +7,26 @@ echo MYSQL_PASSWORD=password >> localrc
 echo RABBIT_PASSWORD=password >> localrc
 echo SERVICE_PASSWORD=password >> localrc
 echo SERVICE_TOKEN=tokentoken >> localrc
+# Enable Heat
+#echo ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng,ceilometer-acompute,ceilometer-acentral,ceilometer-collector,ceilometer-api >> localrc 
+echo ENABLED_SERVICES+=,c-api,c-sch,c-vol,ceilometer-acentral,ceilometer-acompute,ceilometer-api,ceilometer-collector,cinder,g-api,g-reg,h-api,h-api-cfn,h-api-cw,h-eng,heat,horizon,key,mysql,n-api,n-cauth,n-cond,n-cpu,n-crt,n-novnc,n-obj,n-sch,n-xvnc,q-agt,q-dhcp,q-l3,q-lbaas,q-meta,q-svc,quantum,rabbit,sysstat >> localrc
+# echo IMAGE_URLS+=",http://gmw-gorozco1.zpn.intel.com/oc-images/cirros-0.3.0-x86_64-uec.tar.gz,http://gmw-gorozco1.zpn.intel.com/oc-images/F17-i386-cfntools.qcow2,http://gmw-gorozco1.zpn.intel.com/oc-images/F17-x86_64-cfntools.qcow2,http://gmw-gorozco1.zpn.intel.com/oc-images/F18-i386-cfntools.qcow2,http://gmw-gorozco1.zpn.intel.com/oc-images/F18-x86_64-cfntools.qcow2" >> localrc
+echo IMAGE_URLS+=",http://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-i386-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F18-i386-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F18-x86_64-cfntools.qcow2" >> localrc
+echo disable_service n-net >> localrc
+
+# Optionally alter HEAT_REPO to use a fork.
+# HEAT_REPO=https://github.com/sjcorbett/heat.git
+# HEAT_BRANCH=master
+#
+echo "# Network configuration. HOST_IP should be the same as the IP you used" >> localrc
+echo "# for the private network in your Vagrantfile. The combination of" >> localrc
+echo "# FLAT_INTERFACE and PUBLIC_INTERFACE indicates that OpenStack should" >> localrc
+echo "# bridge network traffic over eth1." >> localrc
+echo HOST_IP=10.10.10.102 >> localrc
+echo HOST_IP_IFACE=eth1 >> localrc
 echo FLAT_INTERFACE=br100 >> localrc
-echo ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng,ceilometer-acompute,ceilometer-acentral,ceilometer-collector,ceilometer-api >> localrc
-echo IMAGE_URLS+=",http://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools-pkg.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools-pkg.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F17-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/U10-x86_64-cfntools.qcow2" >> localrc
+echo PUBLIC_INTERFACE=eth1 >> localrc
+echo FLOATING_RANGE=10.10.10.224/27 >> localrc
+echo EXTRA_OPTS=\(scheduler_default_filters=AllHostsFilter\) >> localrc
 ./stack.sh
 echo "OFFLINE=True" >> localrc
