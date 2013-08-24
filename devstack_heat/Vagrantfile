@@ -6,6 +6,7 @@ Vagrant::Config.run do |config|
   config.vm.network :hostonly, "10.10.10.102"
   config.vm.boot_mode='gui'
 
+  config.vm.provision :shell, :path=> "bootstrap.sh" 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
     puppet.module_path = "../modules"
